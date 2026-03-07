@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -42,8 +41,8 @@
         }
 
         .sparkle-logo {
-            width: 80px; /* يمكنك التحكم في عرض الصورة من هنا */
-            height: auto; /* يحافظ على تناسق الطول والعرض */
+            width: 80px; 
+            height: auto;
             display: block;
         }
 
@@ -63,15 +62,15 @@
             text-align: center;
         }
 
-        /* حقل إدخال رقم الجوال */
+        /* حقل إدخال رقم الجوال - تم تعديله ليصبح من اليمين لليسار */
         .input-group {
             width: 100%;
-            border: 2px solid #FFD700; /* اللون الأصفر المميز */
+            border: 2px solid #FFD700; 
             border-radius: 18px;
             padding: 10px 15px;
             display: flex;
             align-items: center;
-            flex-direction: row-reverse;
+            flex-direction: row; /* تم التعديل ليتماشى مع RTL */
             transition: border-color 0.3s;
         }
 
@@ -79,9 +78,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding-right: 10px;
-            border-right: 1px solid #eee;
-            margin-right: 12px;
+            padding-left: 10px; /* مسافة بعد العلم */
+            border-left: 1px solid #eee; /* الخط الفاصل على اليسار */
+            margin-left: 12px;
         }
 
         .flag-icon {
@@ -116,12 +115,14 @@
             color: #333;
             background: transparent;
             font-weight: 500;
-            letter-spacing: 1px;
+            text-align: right; /* محاذاة النص داخل الحقل لليمين */
         }
 
         /* رمز الدعوة */
         .referral-section {
             margin-top: 30px;
+            width: 100%;
+            text-align: center;
         }
 
         .referral-section a {
@@ -189,9 +190,10 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" alt="SA" class="flag-icon">
                 <span class="arrow-down">▼</span>
             </div>
+            
             <div class="input-wrapper">
                 <label>رقم الجوال</label>
-                <input type="tel" id="phoneInput" placeholder="05" dir="ltr" maxlength="10">
+                <input type="tel" id="phoneInput" placeholder="05" maxlength="10">
             </div>
         </div>
 
@@ -212,9 +214,7 @@
         const phoneInput = document.getElementById('phoneInput');
         const submitBtn = document.getElementById('submitBtn');
 
-        // منطق تفعيل الزر عند الكتابة
         phoneInput.addEventListener('input', () => {
-            // يتفعل الزر إذا تم إدخال 9 أرقام أو أكثر
             if (phoneInput.value.trim().length >= 9) {
                 submitBtn.classList.add('active');
                 submitBtn.disabled = false;
@@ -224,7 +224,6 @@
             }
         });
 
-        // منع إدخال أي شيء غير الأرقام
         phoneInput.addEventListener('keypress', (e) => {
             if (!/[0-9]/.test(e.key)) {
                 e.preventDefault();
@@ -234,3 +233,4 @@
 
 </body>
 </html>
+
